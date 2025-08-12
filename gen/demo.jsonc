@@ -1,0 +1,26 @@
+{
+    // This $ represents "common," which means generally all HTML items can use this.
+    // However, this "$" does not apply to meta, script, link, style, and other special tags that are not "rendered" on screen.
+    // You can ignore "style," as it's CSS.
+    "$": {
+        "attributes": {
+            // example
+            "class": {
+                "type": "string",
+                "description": "Class names, split with spaces."
+            },
+            "id": {
+                "type": "string",
+                "description": "A unique identifier that only appears one throughout the whole document."
+            }
+        }
+    },
+
+    // any HTML tag that can be rendered
+    "html-tag-name": {
+        "description": "This HTML tag does something...",
+        "attributes": {
+            "special-attr": "stuff"
+        }
+    }
+}

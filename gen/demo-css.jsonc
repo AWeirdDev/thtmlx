@@ -1,0 +1,25 @@
+// You can use comments!
+{
+    "position": {
+        "type": "enum",
+        "description": "... what this does",
+        "values": [
+            "absolute",
+            "fixed"
+            /* -strip- the list goes on! */
+        ]
+    },
+    "scale": {
+        "type": "number", // "number" means float/int, "integer" means ONLY int
+        "description": "... what this does"
+    },
+    "animation": {
+        "type": "string",
+        "description": [
+            // If this is complicated, you should use a list instead of one string.
+            "This thing is complicated...",
+            "First, ...",
+            "Second, ..."
+        ]
+    }
+}
