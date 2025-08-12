@@ -61,7 +61,7 @@ class Element:
                             s = str(v).lower()
                         else:
                             s = str(v)
-                    attrs += f" {k}={json.dumps(escaper.encode(s))}"
+                    attrs += f" {k.replace('_', '-')}={json.dumps(escaper.encode(s))}"
             return attrs
         else:
             return ""
@@ -146,6 +146,7 @@ def tag(
     *inner: AnyChild,
     accesskey: Optional[str] = None,
     class_: Optional[str] = None,
+    style: Optional[Union[StructuredCss, str, Dict[str, Any], Tuple[()]]] = None,
     contenteditable: Optional[bool] = None,
     dir: Optional[str] = None,
     draggable: Optional[bool] = None,
@@ -167,6 +168,7 @@ def tag(
         {
             "accesskey": accesskey,
             "class": class_,
+            "style": style,
             "contenteditable": contenteditable,
             "dir": dir,
             "draggable": draggable,

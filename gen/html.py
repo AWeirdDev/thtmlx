@@ -76,7 +76,7 @@ def generate():
             if rp_name in went_through:
                 continue
 
-            name_map.append(f"{name!r}: kwargs.get({rp_name!r})")
+            name_map.append(f"{name!r}: kwargs.pop({rp_name!r}, None)")
 
             went_through.append(rp_name)
 
@@ -108,7 +108,7 @@ def generate():
 
         PY.append(
             f"""def {rp_key}(*inner, **kwargs) -> Element:
-    return Element({key!r}, inner, {'{'}{', '.join(name_map)}{'}'})
+    return Element({key!r}, inner, {'{'}{', '.join(name_map)}{',' if name_map else ''} **kwargs{'}'})
 """
         )
 

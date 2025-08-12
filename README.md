@@ -1,4 +1,4 @@
-# thtmlx
+# thtmlx (beta)
 Typed HTML [X ↗](https://x.com) is a simple Python HTML generation tool with safe escaping and type safety. `thtmlx` also supports typed CSS.
 
 **Try it out**:
@@ -36,6 +36,148 @@ Output (raw):
 ```
 
 Note that `thtmlx` does not format generated contents by default to increase the overall speed.
+
+## HTML
+`thtmlx` has covered most general HTML tags and are all exported.
+
+### Extended tags
+For custom tags or tags that are not included in this build, you can use the `tag()` function:
+
+```python
+import thtmlx as x
+
+x.tag(
+    "custom-tag",
+    "I love cheese!"
+)
+```
+
+### Dataset
+You can set custom data with the `data_` prefix.
+
+```python
+x.div("chocolate", data_cool=True)
+# <div data-cool="true">chocolate</div>
+```
+
+### Extended attributes
+For custom attributes, you can directly extend them through Python keyword-only arguments:
+
+```python
+x.div("stuff", tuff=True)
+# <div tuff="true">stuff</div>
+```
+
+...alternatively, use the `extras()` method:
+
+```python
+x.div("cooler stuff").extras({"for": "i in range"})
+# <div for="i in range">cooler stuff</div>
+```
+
+The `extras()` method enables you to write attribute names with special characters or names that may match Python's built-in keywords. 
+
+### Fragments
+Use the `frag()` function to create a fragment:
+
+```python
+x.frag(
+    x.div(),
+    x.div()
+)
+# <div></div>
+# <div></div>
+```
+
+### Comments
+Use the `comment()` function. This is useful for devlopment, as you can wrap things in easily to remove them from the tree.
+Yet in production, it's recommended to just use the Python comment syntax `# like this`.
+
+```python
+x.div(
+    # Good comment
+    x.comment("written comment"),
+
+    x.comment(
+        x.div("these will not be visible at all!")
+    )
+)
+# <div></div>
+```
+
+### Dangerously set inner HTML
+Though **strongly discouraged**, you can still do it with `noescape()`, which disables HTML escaping, which may allow malicious contents to be injected:
+
+```python
+x.div(
+    x.div("<script>alert('boo!')</script>"),  # (1)
+    x.noescape("<script>alert('boo!')</script>"),  # (2)
+)
+# <div><div>&lt;script&gt;alert(&#x27;boo!&#x27;)&lt;&#x2F;script&gt;</div>
+# <script>alert('boo!')</script></div>
+```
+
+As you can see from the output, only (1) gets escaped, and (2) just completely injects the script.
+
+## CSS
+There are three ways of adding CSS: through `str`, `dict` or structured CSS (w/functions).
+
+```python
+# dict
+x.div("Hello!", style={"color": "red"})
+
+# str
+x.div("Hello!", style="color: red;")
+
+# structured
+x.div(
+    "Hello!",
+    style=(
+        x.css().color("red")
+    )
+)
+```
+
+### Conventions with structured CSS
+It's recommended to wrap structured CSS contents within parentheses `()` for a better look.
+
+```python
+x.div(
+    "beautiful",
+    style=(
+        # everything can be formatted like this, nice!
+        x.css()
+        .background("red")
+        .color("white")
+        .font_size("3rem")
+    )
+)
+```
+
+It's also worth noting that even if the contents within the parentheses are removed, it still passes type check and runtime check:
+
+```python
+x.div(
+    "this is fine lol",
+    style=()
+)
+```
+
+### Extended CSS
+You can add extended CSS contents with structured CSS like so:
+
+```python
+x.div(
+    "Hello",
+    style=(
+        css({
+            "extended": "css"
+        })
+        .color("red")
+    )
+)
+```
+
 
 ## Contributing
 Thanks a lot!
