@@ -1,6 +1,157 @@
 # @ generated
 from typing import Any, Dict, Literal, Optional, Union
 
+StandardColor = Literal[
+    "aliceblue",
+    "antiquewhite",
+    "aqua",
+    "aquamarine",
+    "azure",
+    "beige",
+    "bisque",
+    "black",
+    "blanchedalmond",
+    "blue",
+    "blueviolet",
+    "brown",
+    "burlywood",
+    "cadetblue",
+    "chartreuse",
+    "chocolate",
+    "coral",
+    "cornflowerblue",
+    "cornsilk",
+    "crimson",
+    "cyan",
+    "darkblue",
+    "darkcyan",
+    "darkgoldenrod",
+    "darkgray",
+    "darkgreen",
+    "darkgrey",
+    "darkkhaki",
+    "darkmagenta",
+    "darkolivegreen",
+    "darkorange",
+    "darkorchid",
+    "darkred",
+    "darksalmon",
+    "darkseagreen",
+    "darkslateblue",
+    "darkslategray",
+    "darkslategrey",
+    "darkturquoise",
+    "darkviolet",
+    "deeppink",
+    "deepskyblue",
+    "dimgray",
+    "dimgrey",
+    "dodgerblue",
+    "firebrick",
+    "floralwhite",
+    "forestgreen",
+    "fuchsia",
+    "gainsboro",
+    "ghostwhite",
+    "gold",
+    "goldenrod",
+    "gray",
+    "green",
+    "greenyellow",
+    "grey",
+    "honeydew",
+    "hotpink",
+    "indianred",
+    "indigo",
+    "ivory",
+    "khaki",
+    "lavender",
+    "lavenderblush",
+    "lawngreen",
+    "lemonchiffon",
+    "lightblue",
+    "lightcoral",
+    "lightcyan",
+    "lightgoldenrodyellow",
+    "lightgray",
+    "lightgreen",
+    "lightgrey",
+    "lightpink",
+    "lightsalmon",
+    "lightseagreen",
+    "lightskyblue",
+    "lightslategray",
+    "lightslategrey",
+    "lightsteelblue",
+    "lightyellow",
+    "lime",
+    "limegreen",
+    "linen",
+    "magenta",
+    "maroon",
+    "mediumaquamarine",
+    "mediumblue",
+    "mediumorchid",
+    "mediumpurple",
+    "mediumseagreen",
+    "mediumslateblue",
+    "mediumspringgreen",
+    "mediumturquoise",
+    "mediumvioletred",
+    "midnightblue",
+    "mintcream",
+    "mistyrose",
+    "moccasin",
+    "navajowhite",
+    "navy",
+    "oldlace",
+    "olive",
+    "olivedrab",
+    "orange",
+    "orangered",
+    "orchid",
+    "palegoldenrod",
+    "palegreen",
+    "paleturquoise",
+    "palevioletred",
+    "papayawhip",
+    "peachpuff",
+    "peru",
+    "pink",
+    "plum",
+    "powderblue",
+    "purple",
+    "red",
+    "rosybrown",
+    "royalblue",
+    "saddlebrown",
+    "salmon",
+    "sandybrown",
+    "seagreen",
+    "seashell",
+    "sienna",
+    "silver",
+    "skyblue",
+    "slateblue",
+    "slategray",
+    "slategrey",
+    "snow",
+    "springgreen",
+    "steelblue",
+    "tan",
+    "teal",
+    "thistle",
+    "tomato",
+    "turquoise",
+    "violet",
+    "wheat",
+    "white",
+    "whitesmoke",
+    "yellow",
+    "yellowgreen",
+    "rebeccapurple"  # In honor of Rebecca Meyer.
+]
+
 class StructuredCss:
     """Structured CSS.
 
@@ -13,7 +164,7 @@ class StructuredCss:
     def __init__(self, df: Optional[Dict[str, Any]] = None):
         self.k = df or {}
     
-    def accent_color(self, value: str, /) -> "StructuredCss":
+    def accent_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the accent color for user-interface controls like checkboxes and radio buttons.
 
         *@generated*
@@ -246,7 +397,7 @@ class StructuredCss:
         self.k['background-clip'] = str(value)
         return self
     
-    def background_color(self, value: str, /) -> "StructuredCss":
+    def background_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the background color of an element.
 
         *@generated*
@@ -367,7 +518,7 @@ class StructuredCss:
         self.k['border-block'] = str(value)
         return self
     
-    def border_block_color(self, value: str, /) -> "StructuredCss":
+    def border_block_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the borders at the block start and end.
 
         *@generated*
@@ -389,7 +540,7 @@ class StructuredCss:
         self.k['border-block-end'] = str(value)
         return self
     
-    def border_block_end_color(self, value: str, /) -> "StructuredCss":
+    def border_block_end_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the border at the block end.
 
         *@generated*
@@ -433,7 +584,7 @@ class StructuredCss:
         self.k['border-block-start'] = str(value)
         return self
     
-    def border_block_start_color(self, value: str, /) -> "StructuredCss":
+    def border_block_start_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the border at the block start.
 
         *@generated*
@@ -499,7 +650,7 @@ class StructuredCss:
         self.k['border-bottom'] = str(value)
         return self
     
-    def border_bottom_color(self, value: str, /) -> "StructuredCss":
+    def border_bottom_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the bottom border.
 
         *@generated*
@@ -565,7 +716,7 @@ class StructuredCss:
         self.k['border-collapse'] = str(value)
         return self
     
-    def border_color(self, value: str, /) -> "StructuredCss":
+    def border_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the four borders.
 
         *@generated*
@@ -675,7 +826,7 @@ class StructuredCss:
         self.k['border-inline'] = str(value)
         return self
     
-    def border_inline_color(self, value: str, /) -> "StructuredCss":
+    def border_inline_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the borders at the inline start and end.
 
         *@generated*
@@ -697,7 +848,7 @@ class StructuredCss:
         self.k['border-inline-end'] = str(value)
         return self
     
-    def border_inline_end_color(self, value: str, /) -> "StructuredCss":
+    def border_inline_end_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the border at the inline end.
 
         *@generated*
@@ -741,7 +892,7 @@ class StructuredCss:
         self.k['border-inline-start'] = str(value)
         return self
     
-    def border_inline_start_color(self, value: str, /) -> "StructuredCss":
+    def border_inline_start_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the border at the inline start.
 
         *@generated*
@@ -807,7 +958,7 @@ class StructuredCss:
         self.k['border-left'] = str(value)
         return self
     
-    def border_left_color(self, value: str, /) -> "StructuredCss":
+    def border_left_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the left border.
 
         *@generated*
@@ -862,7 +1013,7 @@ class StructuredCss:
         self.k['border-right'] = str(value)
         return self
     
-    def border_right_color(self, value: str, /) -> "StructuredCss":
+    def border_right_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the right border.
 
         *@generated*
@@ -928,7 +1079,7 @@ class StructuredCss:
         self.k['border-top'] = str(value)
         return self
     
-    def border_top_color(self, value: str, /) -> "StructuredCss":
+    def border_top_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of the top border.
 
         *@generated*
@@ -1082,7 +1233,7 @@ class StructuredCss:
         self.k['caption-side'] = str(value)
         return self
     
-    def caret_color(self, value: str, /) -> "StructuredCss":
+    def caret_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the color of the cursor (caret) in inputs, textareas, or editable content.
 
         *@generated*
@@ -1115,7 +1266,7 @@ class StructuredCss:
         self.k['clip-path'] = str(value)
         return self
     
-    def color(self, value: str, /) -> "StructuredCss":
+    def color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of text.
 
         *@generated*
@@ -1170,7 +1321,7 @@ class StructuredCss:
         self.k['column-rule'] = str(value)
         return self
     
-    def column_rule_color(self, value: str, /) -> "StructuredCss":
+    def column_rule_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the color of the rule between columns.
 
         *@generated*
@@ -2589,7 +2740,7 @@ class StructuredCss:
         self.k['outline'] = str(value)
         return self
     
-    def outline_color(self, value: str, /) -> "StructuredCss":
+    def outline_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Sets the color of an outline.
 
         *@generated*
@@ -3414,7 +3565,7 @@ class StructuredCss:
         self.k['scroll-timeline-name'] = str(value)
         return self
     
-    def scrollbar_color(self, value: str, /) -> "StructuredCss":
+    def scrollbar_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the color of the scrollbar track and thumb.
 
         *@generated*
@@ -3546,7 +3697,7 @@ class StructuredCss:
         self.k['text-decoration'] = str(value)
         return self
     
-    def text_decoration_color(self, value: str, /) -> "StructuredCss":
+    def text_decoration_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the color of text decorations.
 
         *@generated*
@@ -3623,7 +3774,7 @@ class StructuredCss:
         self.k['text-emphasis'] = str(value)
         return self
     
-    def text_emphasis_color(self, value: str, /) -> "StructuredCss":
+    def text_emphasis_color(self, value: Union[str, StandardColor], /) -> "StructuredCss":
         """Specifies the color of emphasis marks.
 
         *@generated*
